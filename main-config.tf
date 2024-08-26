@@ -9,9 +9,16 @@ terraform {
   }
 }
 
-# Provider Block
+# Provider Block for local CLI
+# provider "aws" {
+#   # AWS Credentials Profile configured on local  $HOME/.aws/credentials
+#   profile = "default"
+#   region  = var.aws_region
+# }
+
+# Provider Block for Cloud Terraform
 provider "aws" {
-  # AWS Credentials Profile configured on local  $HOME/.aws/credentials
-  profile = "default"
-  region  = var.aws_region
+  access_key = var.AWS_ACCESS_KEY_ID
+  secret_key = var.AWS_SECRET_ACCESS_KEY
+  region     = var.aws_region
 }
